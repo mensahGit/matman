@@ -1,0 +1,21 @@
+<mat-sidenav-container class="example-container" *ngIf="isShowing">
+  <mat-sidenav #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')"
+               (closed)="events.push('close!')">
+    Sidenav content
+   
+    <button mat-menu-item routerLink="/app-sidemen"><mat-icon>email</mat-icon>Sidemen</button>
+    <button mat-menu-item routerLink="/app-menbun"><mat-icon>explore</mat-icon>Menbun</button>
+    <button mat-menu-item routerLink="/app-datakan"><mat-icon>delete</mat-icon>Datakan</button>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <p><mat-checkbox [(ngModel)]="opened">Close</mat-checkbox></p>
+    <p><button mat-button (click)="sidenav.toggle()">Toggle<mat-icon>more_vert</mat-icon></button></p>
+    <p>Events:</p>
+    <router-outlet></router-outlet>
+    <!-- <div class="example-events">
+      <div *ngFor="let e of events">{{e}}</div>
+    </div>-->
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
